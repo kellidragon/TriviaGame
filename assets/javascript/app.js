@@ -91,14 +91,12 @@ function decrement() {
 
 function askQuestion(){
     // gets all the questions then indexes the current questions
-   
-    $('#question').text(trivia.question);
-    $('#options').text(trivia.answers);
-    
+    for (var i = 0; i < trivia.length; i++) {
+    $('#question').text(trivia[i].question);
  
 }
 
-
+}
 function stop() {
   
     // clearInterval to stop the count here and set the clock to not be running.
