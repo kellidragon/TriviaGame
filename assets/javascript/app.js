@@ -93,6 +93,10 @@ function askQuestion(){
     // gets all the questions then indexes the current questions
     for (var i = 0; i < trivia.length; i++) {
     $('#question').text(trivia[i].question);
+    $('#options').text(trivia[i].answers[1]);
+    $('#options').append('<br>' + trivia[i].answers[2]);
+    $('#options').append('<br>' + trivia[i].answers[3]);
+    $('#options').append('<br>' + trivia[i].answers[4]);
  
 }
 
