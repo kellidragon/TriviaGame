@@ -4,13 +4,16 @@ $(document).ready(function(){
 
 
 //start game 
-$("#start").on('click', startGame);
+$(".start").on('click', startGame);
 
 //variables to track 
 var wins= 0;
 var losses = 0;
+var unanswered =0;
 var clockRunning = false;
 var time = 30;
+var userAnswer =0;
+var currentQ =0;
 
 //  Variable that will hold setInterval that runs the stopwatch
 var intervalId;
@@ -50,46 +53,63 @@ console.log(trivia[0]);
 
 
 //<----------------------------------------------------TIMER------------------------------------------------->
-//timer starts at 60sec
-// $("#timer-display").text("00:60");
-//when the start button is clicked run timer
-$("#start").on("click", startGame);
-//timer counts down 
-
 
 
 function startGame() {
-
-    // setInterval to start the count here and set the clock to running.
-    // if (!clockRunning) {
-      clearInterval(intervalId);
-      intervalId = setInterval(decrement, 1000);
-    //   clockRunning = true;
    
-    // }
-  }
+// setInterval to start the count here and set the clock to running.
+if (!clockRunning) {
+    //to keep timer from speeding up
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+    clockRunning = true;
+    askQuestion();
+
+}
+}
 
 function decrement() {
     time--;
-    $("#timer-display").html(time);
+    $("#timer-display").html("Time Remaining: " + time);
     if (time === 0) {
         stop();
-        alert("Time's Up!");
+      
+//if user guesses correct answer
+} if(userAnswer === trivia.correctAnswer){
+    $(".answer").text("Correct! The answer is: " + trivia.correctAnswer)
+    $(".image").html("<iframe src='https://media.giphy.com/media/JltOMwYmi0VrO/giphy.gif'>")
+    wins++
+//if user does not answer and time runs out 
+} else if(userAnswer === -1){
+    $(".answer").text("Negative. The answer was: " + trivia.correctAnswer)
+    $(".image").html("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
+    unanswered++
 }
+
 }
 
 
+function askQuestion(){
+    // gets all the questions then indexes the current questions
+   
+    $('#question').text(trivia.question);
+    $('#options').text(trivia.answers);
+    
+ 
+}
 
 
 function stop() {
   
     // clearInterval to stop the count here and set the clock to not be running.
     clearInterval(intervalId);
-    // clockRunning = false;
-  }
+    clockRunning = false;
+   
+
+    }
 
 //runs the start game function 
-startGame();
+
 
 
 function restartGame() {
@@ -111,6 +131,9 @@ function restartGame() {
 
 
 //after last question show screen with number of correct answers, wrong answers, button to restart game
+// $('.start').hide();
+
+})
 
 
 
@@ -136,7 +159,3 @@ function restartGame() {
 
 
 
-
-
-
-});

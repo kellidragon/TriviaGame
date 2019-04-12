@@ -29,7 +29,7 @@ h1{
 
 p {
       padding-top: 50px;
-      font-size: 1.5rem;
+      font-size: 1 rem;
       z-index: 99;
       text-align: center;
       display: block;
@@ -38,8 +38,10 @@ p {
   
   }
 
-#start{
+.start, #timer-display{
   background: pink;
+  text-align: center;
+  margin: 0 auto;
 }
 
 h2{
