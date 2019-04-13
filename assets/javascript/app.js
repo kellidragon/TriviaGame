@@ -14,14 +14,6 @@ var wins= 0;
 var losses = 0;
 var clockRunning = false;
 var time = 120;
-var answers= [
-"Britney Spears",
-"Charlie Sheen",
-"Snooki",
-"Lindsay Lohan",
-"Amanda Bynes",
-"Kanye West"
-]
 
 
 
