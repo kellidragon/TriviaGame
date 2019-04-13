@@ -23,12 +23,12 @@ var intervalId;
 var trivia = [{
     question:"Who is Britney Spears?", 
     answers: [ "Madonna","Angelina Jolie","Britney Spears","Queen Latifa"],
-    correctAnswer: 3
+    correctAnswer: "Britney Spears"
     },
     {
     question: "Who is Charlie Sheen?",
     answers: ["Charlie Sheen","Donald Trump","William Shatner","Joaqin Pheonix"],
-    correctAnswer: 1
+    correctAnswer: "Charlie Sheen"
 }
     // "Who is Bynes?": "Amanda Bynes", 
     // "Who is Lilo?": "Lindsay Lohan",
@@ -38,6 +38,7 @@ var trivia = [{
 
 ]
 console.log(trivia[0]);
+
 
 //show one question until player answers or time runs out
 
@@ -80,44 +81,30 @@ function askQuestion(){
     $('.option2').text(trivia[i].answers[1]);
     $('.option3').text(trivia[i].answers[2]);
     $('.option4').text(trivia[i].answers[3]);
-    console.log( $('.option').text())
-    return;
-//display options to choose from
+    console.log( $('.option1').text())
 
-//figure out how to get value from options
-
-
-
-// var options =  $('.option').attr("data-value", trivia[i].answers[i])
-//  options.text(trivia[i].answers[i]);
-//  $('.option').append(options);
-//   console.log(options)
-  
-  
-//   var option2 =  trivia[].answers[i];
-//   console.log(option2)
-//   $('.option2').text(option2[i]);
-//   var option3 =   $('.option3').text (trivia[i].answers[3]);
-//   var option4 =   $('.option4').text(trivia[i].answers[4]);  
-
-
-  
-
-   
 }
+
 }
 
 
 function gameLogic(){
     //on click event for answers
 //if user guesses correct answer
-var userClick = $('option').on("click", function(){
-    if(userClick === trivia[i].correctAnswer){
+$('.option').on("click", function(){
+    // event.preventDefault();
+    // console.log(event.target);
+   userChoice = $(this).text();
+   console.log(userChoice);
+   for (var i = 0; i < trivia.length; i++) {
+    if(userChoice === trivia[i].correctAnswer){
+       
         $(".answer").text("Correct! The answer is: " + trivia[i].correctAnswer)
         $(".image").html("<iframe src='https://media.giphy.com/media/JltOMwYmi0VrO/giphy.gif'>")
         wins++
+        
     //if user does not answer and time runs out 
-    } else if(userClick === -1){
+    } else if(this === -1){
         $(".answer").text("Out of Time! The answer was: " + trivia[i].correctAnswer)
         $(".image").html("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
         unanswered++
@@ -126,7 +113,9 @@ var userClick = $('option').on("click", function(){
         $(".image").html("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
         losses++
     }
+}
     });
+    
 };  
 
 
@@ -163,7 +152,7 @@ function restartGame() {
 
 
 //after last question show screen with number of correct answers, wrong answers, button to restart game
-// $('.start').hide();
+
 
 })
 
