@@ -38,12 +38,18 @@ p {
   
   }
 
-.start, #timer-display{
-  background: pink;
-  text-align: center;
-  margin: 0 auto;
+.option, .start{
+  margin-left: 180px;
 }
 
+#timer-display {
+  background: pink;
+  text-align: center;
+}
+
+#question{
+  text-align: center;
+}
 h2{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: white;

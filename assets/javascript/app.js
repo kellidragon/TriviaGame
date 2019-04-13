@@ -6,6 +6,8 @@ $(document).ready(function(){
 //start game 
 $(".start").on('click', startGame);
 
+//hide option buttons before game start
+$(".option").hide();
 //variables to track 
 var wins= 0;
 var losses = 0;
@@ -20,22 +22,12 @@ var intervalId;
 
 var trivia = [{
     question:"Who is Britney Spears?", 
-    answers: {
-        1: "Madonna",
-        2: "Angelina Jolie",
-        3: "Britney Spears",
-        4: "Queen Latifa"
-    },
+    answers: [ "Madonna","Angelina Jolie","Britney Spears","Queen Latifa"],
     correctAnswer: 3
     },
     {
     question: "Who is Charlie Sheen?",
-    answers: {
-        1: "Charlie Sheen",
-        2: "Donald Trump",
-        3: "William Shatner",
-        4: "Joaqin Pheonix",
-    },
+    answers: ["Charlie Sheen","Donald Trump","William Shatner","Joaqin Pheonix"],
     correctAnswer: 1
 }
     // "Who is Bynes?": "Amanda Bynes", 
@@ -49,7 +41,7 @@ console.log(trivia[0]);
 
 //show one question until player answers or time runs out
 
-//page load timer starts 
+
 
 
 //<----------------------------------------------------TIMER------------------------------------------------->
@@ -64,7 +56,9 @@ if (!clockRunning) {
     intervalId = setInterval(decrement, 1000);
     clockRunning = true;
     askQuestion();
-
+    gameLogic();
+    $(".option").show()
+    $(".start").hide()
 }
 }
 
@@ -73,42 +67,78 @@ function decrement() {
     $("#timer-display").html("Time Remaining: " + time);
     if (time === 0) {
         stop();
-      
-//if user guesses correct answer
-} if(userAnswer === trivia.correctAnswer){
-    $(".answer").text("Correct! The answer is: " + trivia.correctAnswer)
-    $(".image").html("<iframe src='https://media.giphy.com/media/JltOMwYmi0VrO/giphy.gif'>")
-    wins++
-//if user does not answer and time runs out 
-} else if(userAnswer === -1){
-    $(".answer").text("Negative. The answer was: " + trivia.correctAnswer)
-    $(".image").html("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
-    unanswered++
+}
 }
 
-}
 
 
 function askQuestion(){
-    // gets all the questions then indexes the current questions
     for (var i = 0; i < trivia.length; i++) {
     $('#question').text(trivia[i].question);
-    $('#options').text(trivia[i].answers[1]);
-    $('#options').append('<br>' + trivia[i].answers[2]);
-    $('#options').append('<br>' + trivia[i].answers[3]);
-    $('#options').append('<br>' + trivia[i].answers[4]);
- 
+    console.log(  $('#question').text())
+    $('.option1').text(trivia[i].answers[0]);
+    $('.option2').text(trivia[i].answers[1]);
+    $('.option3').text(trivia[i].answers[2]);
+    $('.option4').text(trivia[i].answers[3]);
+    console.log( $('.option').text())
+    return;
+//display options to choose from
+
+//figure out how to get value from options
+
+
+
+// var options =  $('.option').attr("data-value", trivia[i].answers[i])
+//  options.text(trivia[i].answers[i]);
+//  $('.option').append(options);
+//   console.log(options)
+  
+  
+//   var option2 =  trivia[].answers[i];
+//   console.log(option2)
+//   $('.option2').text(option2[i]);
+//   var option3 =   $('.option3').text (trivia[i].answers[3]);
+//   var option4 =   $('.option4').text(trivia[i].answers[4]);  
+
+
+  
+
+   
+}
 }
 
-}
+
+function gameLogic(){
+    //on click event for answers
+//if user guesses correct answer
+var userClick = $('option').on("click", function(){
+    if(userClick === trivia[i].correctAnswer){
+        $(".answer").text("Correct! The answer is: " + trivia[i].correctAnswer)
+        $(".image").html("<iframe src='https://media.giphy.com/media/JltOMwYmi0VrO/giphy.gif'>")
+        wins++
+    //if user does not answer and time runs out 
+    } else if(userClick === -1){
+        $(".answer").text("Out of Time! The answer was: " + trivia[i].correctAnswer)
+        $(".image").html("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
+        unanswered++
+    } else{
+        $(".answer").text("Negative. The answer was: " + trivia[i].correctAnswer)
+        $(".image").html("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
+        losses++
+    }
+    });
+};  
+
+
+  
+ 
+
 function stop() {
   
     // clearInterval to stop the count here and set the clock to not be running.
     clearInterval(intervalId);
     clockRunning = false;
-   
-
-    }
+}
 
 //runs the start game function 
 
