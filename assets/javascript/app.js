@@ -24,7 +24,7 @@ var answers= [
 ]
 
 
-//<----------------------------------------------------TIMER------------------------------------------------->
+
 //  Variable that will hold setInterval that runs the stopwatch
 var intervalId;
 
@@ -65,31 +65,39 @@ function game(){
     //on click event for answers
 //if user guesses correct answer
 
-    var formInput = $(".answer");
+    var formInput = $("radio");
     var checked = false;
     var userAnswer;
     
+// click events to track answers
+    $(".answer").on("click", function(){
+        wins++
+    })
+
+    $(".wrong").on("click", function(){
+        losses++
+        console.log("wrong")
+    })
+    
     for( let i = 0; i < formInput.length; i++ ) {
        if(formInput[i].checked) {
-         checked = true;
          userAnswer = formInput[i].value;
        }
     } 
-    // if user clicks submit without filling out the form
+// if user clicks submit without filling out the form
     if(!checked) {
       return;
     }
     if(time===0){
         gameOver();
     }
-    // Correct answer
-
+// Correct answer
     if(userAnswer === answers[i] && time > 0) {
         wins++
  
       ;
     }
-    // incorrect answer
+// incorrect answer
     else {
        lossess++
 
@@ -97,9 +105,7 @@ function game(){
     
     }
 
-
-
-
+//displays result page
 function gameOver() {
     clearInterval(intervalId);
     clockRunning = false;
@@ -107,15 +113,15 @@ function gameOver() {
     $("form").hide();
     $(".submit").hide();
     $("#descrip").hide();
-    $("#results").text("The Results Are In!")
-    $("#wins").text("Correct: "+ wins)
-    $("#losses").html("Wrong: "+ losses)
-    if(wins > 4){
-        $("#blurb").text("Looks like you know crazy pretty well..."+ '<br>')
-        $("#image").append("<iframe src='https://media.giphy.com/media/zcVOyJBHYZvX2/giphy.gif'>")
+    $("#results").text("THE RESULTS ARE IN").addClass("results")
+    $("#wins").text("Correct: "+ wins).addClass("score")
+    $("#losses").html("Wrong: "+ losses).addClass("score")
+    if(wins > losses){
+        $("#blurb").text("Looks like you know crazy pretty well...")
+        $("#image").append($("<img>").attr("src", "assets/images/yay.gif"))
     }else{
         $("#blurb").text("Time to brush up on your crazy...")
-        $("#image").append("<iframe src='https://media.giphy.com/media/MyDiXB4PnPSBW/giphy.gif'>")
+        $("#image").append($("<img>").attr("src", "assets/images/renaldo.gif"))
 }
 
 }

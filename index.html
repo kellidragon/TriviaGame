@@ -19,45 +19,45 @@
                 <p id="descrip"> Who doesn't love a good old fashion freakout? Guess which meltdown belongs to which celeb in the allotted time!</p>
                 <div id="timer-display"></div>
                 <button type="button" class="btn btn-secondary btn-lg start">START</button>
-                <form>
+                <form id="quiz">
                     <div id="question1">
                     <p>Who famously took an umbrella to her ex's car?</p>
-                        <input type="radio" name="option1" value="Madonna"> Madonna<br>
-                        <input type="radio" name="option1" value="Angelina Jolie"> Angelina Jolie<br>
+                        <input class="wrong"type="radio" name="option1" value="Madonna"> Madonna<br>
+                        <input class="wrong"type="radio" name="option1" value="Angelina Jolie"> Angelina Jolie<br>
                         <input class="answer" type="radio" name="option1" value="Britney Spears"> Britney Spears<br>
-                        <input type="radio" name="option1" value="Lady Gaga"> Lady Gaga<br>
+                        <input class="wrong" type="radio" name="option1" value="Lady Gaga"> Lady Gaga<br>
                     </div>
                     <div id="question2">
                     <p>Who coined the phrase "#Winning"?</p>
-                        <input type="radio" name="option2" value="Donald Trump" > Donald Trump<br>
-                        <input type="radio" name="option2" value="Chuck Norris"> Chuck Norris<br>
-                        <input type="radio" name="option2" value="Britney Spears"> Britney Spears<br>
-                        <input class="answer" type="radio" name="option2" value="Charlie Sheen"> Charlie Sheen<br>
+                        <input class="wrong"type="radio" name="option2" value="Donald Trump" > Donald Trump<br>
+                        <input class="wrong"type="radio" name="option2" value="Chuck Norris"> Chuck Norris<br>
+                        <input class="wrong"type="radio" name="option2" value="Britney Spears"> Britney Spears<br>
+                        <input class="answer" type="radio" name="option2" value="Charlie Sheen" > Charlie Sheen<br>
                     </div>
                     <div id="question3">
                     <p>Which one of these reality stars' life has been one big freak-out?</p>
-                        <input type="radio" name="option3" value="Bethenny Frankel" > Bethenny Frankel <br>
+                        <input class="wrong"type="radio" name="option3" value="Bethenny Frankel" > Bethenny Frankel <br>
                         <input class="answer" type="radio" name="option3" value="Snooki"> Snooki<br>
-                        <input type="radio" name="option3" value="Britney Spears"> Britney Spears<br>
-                        <input type="radio" name="option3" value="Lady Gaga"> Lady Gaga<br>
+                        <input class="wrong"type="radio" name="option3" value="Britney Spears"> Britney Spears<br>
+                        <input class="wrong"type="radio" name="option3" value="Lady Gaga"> Lady Gaga<br>
                     </div>
                     <div id="question4">
                     <p>Who sent out this famous tweet to the President: 
                         "Hey @BarackObama…I don’t drink. Please fire the cop who arrested me. I also don’t hit and run. The end."</p>
                         <input class="answer" type="radio" name="option5" value="Amanda Bynes"> Amanda Bynes<br>
-                        <input type="radio" name="option5" value="Hilary Clinton"> Hilary Clinton<br>
-                        <input type="radio" name="option5" value="Lindsay Lohan"> Lindsay Lohan<br>
-                        <input type="radio" name="option5" value="Lady Gaga"> Lady Gaga<br>
+                        <input class="wrong" type="radio" name="option5" value="Hilary Clinton"> Hilary Clinton<br>
+                        <input class="wrong" type="radio" name="option5" value="Lindsay Lohan"> Lindsay Lohan<br>
+                        <input class="wrong" type="radio" name="option5" value="Lady Gaga"> Lady Gaga<br>
                     </div>
                     <div id="question5">
                     <p>Which one was crazy enough to marry a Kardashian? </p>
                         <input class="answer" type="radio" name="option6" value="Kanye West" > Kanye West<br>
-                        <input type="radio" name="option6" value="Kanye West"> Kanye West<br>
-                        <input type="radio" name="option6" value="Kanye West"> Kanye West<br>
-                        <input type="radio" name="option6" value="Kanye West"> Kanye West<br>
+                        <input class="answer" type="radio" name="option6" value="Kanye West"> Kanye West<br>
+                        <input class="answer" type="radio" name="option6" value="Kanye West"> Kanye West<br>
+                        <input class="answer" type="radio" name="option6" value="Kanye West"> Kanye West<br>
                     </div>
                 </form>
-                <button type="submit"  value="Submit" class="btn btn-secondary btn-lg submit">Submit</button>
+                <button type="submit"  value="Submit" class="btn btn-secondary btn-lg submit" >Submit</button>
             <div class="resultsContainer">
                 <div id="results"></div>
                 <div id="wins"></div>

@@ -21,6 +21,16 @@ body {
 
 }
 
+.results{
+  font-weight: bold;
+  font-size: 2rem;
+  color: hotpink
+}
+
+.score{
+  font-weight: bold;
+}
+
 h1{
     text-align: center;
     font-style: italic;
@@ -42,15 +52,13 @@ form{
 }
 
 p {
-      padding-top: 50px;
-      font-size: 1 rem;
-      z-index: 99;
-      text-align: center;
-      display: block;
-      color: balck;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-  
+    padding-top: 50px;
+    font-size: 1 rem;
+    z-index: 99;
+    text-align: center;
+    display: block;
+    color: balck;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
 .start, .submit{
@@ -58,8 +66,6 @@ p {
   height:50px;
   width:200px;
   margin-bottom: 50px;
-
-  
 }
 
 
@@ -71,13 +77,14 @@ p {
 #question{
   text-align: center;
 }
+
 h2{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: white;
   font-size: .3rem;
   text-align: center;
-  
 }
+
 h4{
   font-size: .3rem;
 }
